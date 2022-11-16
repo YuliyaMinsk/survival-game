@@ -6,6 +6,7 @@ export default class MainScene extends Phaser.Scene {
   preload() {
     console.log('preload');
     this.load.atlas('female', 'assets/images/female.png', 'assets/images/female_atlas.json');
+    this.load.animation('female_anim', 'assets/images/female_anim.json');
   }
 
   create() {
@@ -21,7 +22,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update() {
-    console.log('update');
+    this.player.anims.play('female_idle', true);
     const speed = 2.5;
     let playerVelocity = new Phaser.Math.Vector2();
 
